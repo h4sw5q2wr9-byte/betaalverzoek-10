@@ -51,8 +51,8 @@
       <div class="visual" aria-hidden="true"><span class="symbol">€</span></div>
       <div class="content">
         <h1 id="request-title">Ontvangstverzoek</h1>
-        <p class="amount">€ 10,00</p>
-        <p class="description">Er staat een tientje voor je klaar.</p>
+        <p class="amount" id="request-amount">€ 10,00</p>
+        <p class="description" id="request-description">Er staat een tientje voor je klaar.</p>
         <div class="action">
           <button id="claim-button" type="button">Doorgaan</button>
         </div>
@@ -63,6 +63,21 @@
     <source src="rickroll-dans.mp4" type="video/mp4">
   </video>
   <script>
+    const amountParam = new URLSearchParams(window.location.search).get('amount');
+    if (amountParam && /^\d{1,4}([.,]\d{1,2})?$/.test(amountParam)) {
+      const amount = Number(amountParam.replace(',', '.'));
+      if (amount > 0 && amount !== 10) {
+        const displayAmount = new Intl.NumberFormat('nl-NL', {
+          style: 'currency',
+          currency: 'EUR',
+        }).format(amount);
+        document.getElementById('request-amount').textContent = displayAmount;
+        document.getElementById('request-description').textContent =
+          'Open je ontvangstverzoek om verder te gaan.';
+        document.title = 'Claim je ' + displayAmount;
+      }
+    }
+
     const claim = document.getElementById('claim');
     const video = document.getElementById('rickroll');
     document.getElementById('claim-button').addEventListener('click', () => {
