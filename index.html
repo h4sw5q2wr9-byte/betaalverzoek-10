@@ -9,7 +9,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Claim je € 10,00">
   <meta property="og:description" content="Er staat een tientje voor je klaar.">
-  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=6">
+  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=7">
   <meta property="og:image" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/euro-mini.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="160">
@@ -24,7 +24,7 @@
 </head>
 <body>
   <iframe id="video" title="Rick Astley – Never Gonna Give You Up"
-    src="https://www.youtube.com/embed/dQw4w9WgXcQ?playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fh4sw5q2wr9-byte.github.io"
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&amp;mute=1&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fh4sw5q2wr9-byte.github.io"
     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
     referrerpolicy="strict-origin-when-cross-origin"></iframe>
   <script>
@@ -32,10 +32,8 @@
       new YT.Player('video', {
         events: {
           onReady: ({ target: player }) => {
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              player.mute();
-              player.playVideo();
-            }
+            player.mute();
+            player.playVideo();
           }
         }
       });
