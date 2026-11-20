@@ -9,7 +9,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Claim je € 10,00">
   <meta property="og:description" content="Er staat een tientje voor je klaar.">
-  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=7">
+  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=8">
   <meta property="og:image" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/euro-mini.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="160">
@@ -17,28 +17,31 @@
   <meta property="og:image:alt" content="Wit euroteken op een groenblauw betaalkaartje.">
   <link rel="icon" type="image/jpeg" sizes="160x160" href="euro-mini.jpg">
   <style>
-    html, body { margin: 0; height: 100%; background: #000; }
-    body { display: grid; place-items: center; }
-    iframe { display: block; width: 100%; height: min(100%, max(200px, 56.25vw)); border: 0; }
+    html, body { margin: 0; min-height: 100%; }
+    body { min-height: 100dvh; display: grid; place-items: center; background: #effaf7; font: 1rem system-ui, sans-serif; }
+    body.playing { background: #000; }
+    [hidden] { display: none !important; }
+    main { text-align: center; }
+    button { border: 0; border-radius: 2rem; padding: 1rem 1.6rem; background: #147d76; color: white; font: inherit; font-weight: bold; cursor: pointer; }
+    video { display: block; width: 100vw; height: 100dvh; object-fit: contain; }
   </style>
 </head>
 <body>
-  <iframe id="video" title="Rick Astley – Never Gonna Give You Up"
-    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&amp;mute=1&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fh4sw5q2wr9-byte.github.io"
-    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <main id="claim">
+    <button id="claim-button" type="button">Claim je € 10,00</button>
+  </main>
+  <video id="rickroll" hidden playsinline controls loop preload="auto" aria-label="Rick Astley danst in Never Gonna Give You Up">
+    <source src="rickroll.mp4" type="video/mp4">
+  </video>
   <script>
-    window.onYouTubeIframeAPIReady = function () {
-      new YT.Player('video', {
-        events: {
-          onReady: ({ target: player }) => {
-            player.mute();
-            player.playVideo();
-          }
-        }
-      });
-    };
+    const claim = document.getElementById('claim');
+    const video = document.getElementById('rickroll');
+    document.getElementById('claim-button').addEventListener('click', () => {
+      video.hidden = false;
+      claim.hidden = true;
+      document.body.classList.add('playing');
+      video.play().catch(() => video.focus());
+    });
   </script>
-  <script async src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
