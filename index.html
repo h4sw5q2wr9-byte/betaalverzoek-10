@@ -9,7 +9,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="€ 10,00 staat voor je klaar">
   <meta property="og:description" content="Open de link om je tientje te claimen.">
-  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=4">
+  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=5">
   <meta property="og:image" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/euro-mini.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="160">
@@ -19,11 +19,20 @@
   <style>
     html, body { margin: 0; height: 100%; background: #000; }
     body { display: grid; place-items: center; }
-    img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    video { display: block; width: 100%; height: 100%; object-fit: contain; }
   </style>
 </head>
 <body>
-  <img src="https://media1.tenor.com/m/yCD0nPHINg0AAAAC/never-gonna-give-you-up-rick-astley.gif"
-    alt="Rick Astley danst in Never Gonna Give You Up">
+  <video id="rickroll" muted loop playsinline controls preload="metadata" aria-label="Rick Astley danst in Never Gonna Give You Up">
+    <source src="rickroll.mp4" type="video/mp4">
+  </video>
+  <script>
+    const video = document.getElementById('rickroll');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.play().catch(() => {
+        // The native play control remains available when autoplay is blocked.
+      });
+    }
+  </script>
 </body>
 </html>
