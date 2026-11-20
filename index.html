@@ -9,7 +9,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Claim je € 10,00">
   <meta property="og:description" content="Er staat een tientje voor je klaar.">
-  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=8">
+  <meta property="og:url" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/?v=9">
   <meta property="og:image" content="https://h4sw5q2wr9-byte.github.io/betaalverzoek-10/euro-mini.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="160">
@@ -18,20 +18,28 @@
   <link rel="icon" type="image/jpeg" sizes="160x160" href="euro-mini.jpg">
   <style>
     html, body { margin: 0; min-height: 100%; }
-    body { min-height: 100dvh; display: grid; place-items: center; background: #effaf7; font: 1rem system-ui, sans-serif; }
+    body { min-height: 100dvh; display: grid; place-items: center; background: #f1f5f4; color: #142d2b; font: 1rem system-ui, sans-serif; }
     body.playing { background: #000; }
     [hidden] { display: none !important; }
-    main { text-align: center; }
-    button { border: 0; border-radius: 2rem; padding: 1rem 1.6rem; background: #147d76; color: white; font: inherit; font-weight: bold; cursor: pointer; }
+    main { box-sizing: border-box; width: min(27rem, calc(100vw - 2rem)); padding: clamp(1.4rem, 5vw, 2.4rem); background: #fff; border: 1px solid #dfe8e6; border-radius: 1.25rem; box-shadow: 0 1rem 3rem #183d3310; }
+    .label { margin: 0 0 1.4rem; font-weight: 650; color: #37615b; }
+    h1 { margin: 0; font-size: clamp(2.5rem, 9vw, 3.6rem); letter-spacing: -.055em; line-height: 1; }
+    .description { margin: .85rem 0 1.8rem; color: #455f5b; }
+    button { border: 0; width: 100%; border-radius: .65rem; padding: .9rem 1rem; background: #176b61; color: white; font: inherit; font-weight: bold; cursor: pointer; }
+    button:hover { background: #11564e; }
+    button:focus-visible { outline: 3px solid #2d8c7d; outline-offset: 4px; }
     video { display: block; width: 100vw; height: 100dvh; object-fit: contain; }
   </style>
 </head>
 <body>
   <main id="claim">
-    <button id="claim-button" type="button">Claim je € 10,00</button>
+    <p class="label">Ontvangstverzoek</p>
+    <h1>€ 10,00</h1>
+    <p class="description">Er staat een tientje voor je klaar.</p>
+    <button id="claim-button" type="button">Doorgaan</button>
   </main>
   <video id="rickroll" hidden playsinline controls loop preload="auto" aria-label="Rick Astley danst in Never Gonna Give You Up">
-    <source src="rickroll.mp4" type="video/mp4">
+    <source src="rickroll-dans.mp4" type="video/mp4">
   </video>
   <script>
     const claim = document.getElementById('claim');
